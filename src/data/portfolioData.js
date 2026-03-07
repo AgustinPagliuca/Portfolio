@@ -13,8 +13,8 @@ export const personalInfo = {
   location: 'Buenos Aires, Argentina',
   linkedin: 'https://www.linkedin.com/in/agustin-pagliuca-6836b7237/',
   github: 'https://github.com/AgustinPagliuca',
-  profileImage: '/portfolio/foto-perfil.jpeg',
-  cvUrl: '/portfolio/cv-agustin-pagliuca.pdf',
+  profileImage: '/Portfolio/foto-perfil.jpeg',
+  cvUrl: '/Portfolio/cv-agustin-pagliuca.pdf',
   available: true
 };
 
