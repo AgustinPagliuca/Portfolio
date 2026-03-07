@@ -1,0 +1,42 @@
+---
+import { Briefcase } from 'lucide-react';
+import { experience } from '../../data/portfolioData';
+---
+
+<section id="experiencia" class="py-20 px-6">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-gray-900 dark:text-white">
+      Experiencia
+    </h2>
+
+    <div class="space-y-0">
+      {experience.map((exp, index) => (
+        <div class="flex gap-4 group">
+          {/* Timeline Icon */}
+          <div class="flex flex-col items-center">
+            <div class="w-10 h-10 border rounded-lg flex items-center justify-center flex-shrink-0 transition-colors bg-white border-gray-300 group-hover:border-cyan-500 dark:bg-gray-800 dark:border-gray-700 dark:group-hover:border-cyan-500/50">
+              <Briefcase size={18} className="text-cyan-600 dark:text-cyan-400" />
+            </div>
+            {/* Vertical Line */}
+            {index < experience.length - 1 && (
+              <div class="w-0.5 flex-1 my-2 bg-gray-300 dark:bg-gray-800" />
+            )}
+          </div>
+
+          {/* Content */}
+          <div class="flex-1 pb-10">
+            <div class="flex flex-wrap items-baseline gap-2 mb-1">
+              <h3 class="text-xl font-semibold transition-colors text-cyan-600 group-hover:text-cyan-500 dark:text-cyan-400 dark:group-hover:text-cyan-300">
+                {exp.title}
+              </h3>
+              <span class="text-gray-400 dark:text-gray-600">-</span>
+              <span class="text-orange-600 dark:text-orange-400">{exp.company}</span>
+            </div>
+            <p class="text-sm mb-3 text-gray-500">{exp.period}</p>
+            <p class="leading-relaxed text-gray-600 dark:text-gray-400">{exp.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

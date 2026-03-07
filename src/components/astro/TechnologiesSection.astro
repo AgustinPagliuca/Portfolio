@@ -1,0 +1,55 @@
+---
+import TechIcon, { techLabels } from '../react/TechIcons';
+import { technologies } from '../../data/portfolioData';
+---
+
+<section id="tecnologias" class="py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+      Tecnologías
+    </h2>
+    <p class="mb-12 text-gray-600 dark:text-gray-400">
+      En mi viaje por el{' '}
+      <span class="text-cyan-600 dark:text-cyan-400">mundo del desarrollo</span>, he cultivado{' '}
+      <span class="text-orange-600 dark:text-orange-400">experiencia y habilidades</span> en una variedad de tecnologías.{' '}
+      <span class="underline underline-offset-4 text-cyan-600 decoration-cyan-600/50 dark:text-cyan-400 dark:decoration-cyan-400/50">
+        Mi stack tecnológico incluye
+      </span>:
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      {Object.entries(technologies).map(([key, data]) => {
+        const borderClass = {
+          cyan: 'border-cyan-500/30 hover:border-cyan-500 dark:border-cyan-500/20 dark:hover:border-cyan-500/40',
+          purple: 'border-purple-500/30 hover:border-purple-500 dark:border-purple-500/20 dark:hover:border-purple-500/40',
+          green: 'border-green-500/30 hover:border-green-500 dark:border-green-500/20 dark:hover:border-green-500/40',
+          orange: 'border-orange-500/30 hover:border-orange-500 dark:border-orange-500/20 dark:hover:border-orange-500/40',
+        }[data.color];
+
+        const titleClass = {
+          cyan: 'text-cyan-600 dark:text-cyan-400',
+          purple: 'text-purple-600 dark:text-purple-400',
+          green: 'text-green-600 dark:text-green-400',
+          orange: 'text-orange-600 dark:text-orange-400',
+        }[data.color];
+
+        return (
+          <div class={`rounded-2xl p-6 border transition-colors bg-white dark:bg-gray-800/30 ${borderClass}`}>
+            <h3 class={`text-2xl font-bold mb-6 ${titleClass}`}>
+              {data.title}
+            </h3>
+            <div class="grid grid-cols-3 gap-2">
+              {data.items.map((techKey) => (
+                <TechIcon
+                  client:load
+                  name={techKey}
+                  label={techLabels[techKey] || techKey}
+                />
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>

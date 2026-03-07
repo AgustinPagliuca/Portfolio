@@ -1,0 +1,89 @@
+---
+import { Mail, Linkedin, Github, MapPin, Phone } from 'lucide-react';
+import { personalInfo, menuItems } from '../../data/portfolioData';
+---
+
+<footer class="py-12 px-6 border-t transition-colors duration-300 border-gray-200 dark:border-gray-800">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-3 gap-8 mb-8">
+      {/* Brand */}
+      <div>
+        <h3 class="text-xl font-bold mb-3 text-cyan-600 dark:text-cyan-400">
+          apdev
+        </h3>
+        <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-500">
+          Desarrollador Fullstack con foco en Frontend, apasionado por crear interfaces web responsivas con React y soluciones escalables.
+        </p>
+      </div>
+
+      {/* Quick Links */}
+      <div>
+        <h4 class="font-semibold mb-3 text-gray-900 dark:text-white">
+          Navegación
+        </h4>
+        <div class="space-y-2">
+          {menuItems.map((item) => (
+            <a
+              href={`#${item.id}`}
+              class="block text-sm transition-colors text-gray-600 hover:text-cyan-600 dark:text-gray-500 dark:hover:text-cyan-400"
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      {/* Contact */}
+      <div>
+        <h4 class="font-semibold mb-3 text-gray-900 dark:text-white">
+          Contacto
+        </h4>
+        <div class="space-y-3">
+          <a
+            href={`mailto:${personalInfo.email}`}
+            class="flex items-center gap-2 text-sm transition-colors text-gray-600 hover:text-cyan-600 dark:text-gray-500 dark:hover:text-cyan-400"
+          >
+            <Mail size={14} />
+            {personalInfo.email}
+          </a>
+          <a
+            href={`tel:${personalInfo.phone.replace(/-/g, '')}`}
+            class="flex items-center gap-2 text-sm transition-colors text-gray-600 hover:text-cyan-600 dark:text-gray-500 dark:hover:text-cyan-400"
+          >
+            <Phone size={14} />
+            {personalInfo.phone}
+          </a>
+          <a
+            href={personalInfo.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 text-sm transition-colors text-gray-600 hover:text-cyan-600 dark:text-gray-500 dark:hover:text-cyan-400"
+          >
+            <Linkedin size={14} />
+            LinkedIn
+          </a>
+          <a
+            href={personalInfo.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 text-sm transition-colors text-gray-600 hover:text-cyan-600 dark:text-gray-500 dark:hover:text-cyan-400"
+          >
+            <Github size={14} />
+            GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    {/* Bottom Bar */}
+    <div class="border-t pt-8 flex flex-col md:flex-row justify-between items-center gap-4 border-gray-200 dark:border-gray-800">
+      <p class="text-sm text-gray-500 dark:text-gray-600">
+        © {new Date().getFullYear()} {personalInfo.fullName}. Todos los derechos reservados.
+      </p>
+      <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-600">
+        <MapPin size={14} />
+        {personalInfo.location}
+      </div>
+    </div>
+  </div>
+</footer>
