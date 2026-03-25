@@ -1,5 +1,4 @@
 // Portfolio Data - Agustín Pagliuca
-// All personal information and content in one place for easy updates
 
 export const personalInfo = {
   name: 'Agustín',
@@ -7,7 +6,7 @@ export const personalInfo = {
   fullName: 'Agustín Pagliuca',
   title: 'Desarrollador Fullstack',
   subtitle: 'React · Node.js · JavaScript',
-  yearsExperience: '+3',
+  yearsExperience: '+2',
   email: 'agustinpagliuca1@gmail.com',
   phone: '+54-11-23448499',
   location: 'Buenos Aires, Argentina',
