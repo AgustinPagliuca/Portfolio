@@ -101,13 +101,13 @@ export const projects = [
   },
   {
     id: 3,
-    title: 'API RESTful - Gestión',
-    description: 'Desarrollo de API RESTful aplicando buenas prácticas y arquitectura en capas. (Proyecto en curso para afianzar conocimientos en el ecosistema Microsoft).',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop',
+    title: 'CineCore',
+    description: 'Sistema de administración de cine con ASP.NET Core MVC. Incluye CRUD de películas, salas y funciones, reserva visual de butacas, panel de empleados y autenticación con roles mediante ASP.NET Identity.',
+    image: '/Portfolio/coming-soon.svg',
     category: 'Backend',
-    tech: ['C#', '.NET Core', 'SQL Server'],
+    tech: ['C#', '.NET 10', 'ASP.NET Core MVC', 'Entity Framework Core', 'SQL Server', 'Bootstrap 5'],
     link: '#',
-    github: '#'
+    github: 'https://github.com/AgustinPagliuca/CineCore'
   }
 ];
 
