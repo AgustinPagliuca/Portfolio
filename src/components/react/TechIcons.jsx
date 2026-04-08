@@ -128,6 +128,12 @@ const icons = {
       <path fill="#1F9CF0" d="M63.35 64.034L29.082 95.543l-19.915-16.524V49.048l19.915-16.52z"/>
     </svg>
   ),
+  vstudio: () => (
+    <svg viewBox="0 0 128 128" className="w-7 h-7">
+      <rect fill="#5C2D91" width="128" height="128" rx="10"/>
+      <text x="64" y="80" textAnchor="middle" fill="white" fontSize="36" fontWeight="bold">VS</text>
+    </svg>
+  ),
   postman: () => (
     <svg viewBox="0 0 128 128" className="w-7 h-7">
       <circle fill="#FF6C37" cx="64" cy="64" r="64"/>
@@ -244,6 +250,7 @@ export const techLabels = {
   git: 'Git',
   github: 'GitHub',
   vscode: 'VS Code',
+  vstudio: 'Visual Studio',
   postman: 'Postman',
   jira: 'Jira',
   sqlmanagement: 'SSMS',

@@ -5,7 +5,7 @@ export const personalInfo = {
   lastName: 'Pagliuca',
   fullName: 'Agustín Pagliuca',
   title: 'Desarrollador Fullstack',
-  subtitle: 'React · Node.js · JavaScript',
+  subtitle: 'React · .NET · SQL',
   yearsExperience: '+2',
   email: 'agustinpagliuca1@gmail.com',
   phone: '+54-11-23448499',
@@ -14,7 +14,10 @@ export const personalInfo = {
   github: 'https://github.com/AgustinPagliuca',
   profileImage: '/Portfolio/foto-perfil.jpeg',
   cvUrl: '/Portfolio/cv-agustin-pagliuca.pdf',
-  available: true
+  available: true,
+  shortBio: 'Desarrollador Fullstack con experiencia en React y SQL Server, especializándome en backend con C# y .NET Core para crear soluciones robustas.',
+  heroSubtitle: 'Experiencia en React, APIs RESTful y SQL Server. Actualmente especializándome en backend con C# y .NET Core. Me motiva trabajar en equipos colaborativos.',
+  seoDescription: 'Portfolio de Agustín Pagliuca, Desarrollador Fullstack con experiencia en React y SQL Server. Especializándome en backend con C# y .NET Core. Buenos Aires, Argentina.'
 };
 
 export const aboutMe = {
@@ -25,9 +28,9 @@ export const aboutMe = {
       highlights: [
         { text: 'Estudiante de Analista de Sistemas', type: 'cyan' },
         { text: ' y ', type: 'normal' },
-        { text: 'Desarrollador Fullstack con foco en Frontend', type: 'cyan' }
+        { text: 'Desarrollador Fullstack', type: 'cyan' }
       ],
-      suffix: '. Apasionado por la programación desde temprana edad, con experiencia en React, consumo de APIs RESTful, uso de Context API y conocimientos en backend con Node.js y bases de datos SQL.'
+      suffix: '. Apasionado por la programación desde temprana edad, con experiencia en React, desarrollo de interfaces y consumo de APIs RESTful. Con sólidos conocimientos en SQL Server y metodologías ágiles, actualmente estoy enfocando mi crecimiento en el desarrollo backend con C# y .NET Core para crear soluciones robustas.'
     },
     {
       text: 'Entre mis fortalezas destaco el ',
@@ -95,6 +98,16 @@ export const projects = [
     tech: ['React', 'Tailwind', 'JavaScript'],
     link: 'https://agustinpagliuca.github.io/EspacioDermico/',
     github: 'https://github.com/AgustinPagliuca/EspacioDermico'
+  },
+  {
+    id: 3,
+    title: 'API RESTful - Gestión',
+    description: 'Desarrollo de API RESTful aplicando buenas prácticas y arquitectura en capas. (Proyecto en curso para afianzar conocimientos en el ecosistema Microsoft).',
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop',
+    category: 'Backend',
+    tech: ['C#', '.NET Core', 'SQL Server'],
+    link: '#',
+    github: '#'
   }
 ];
 
@@ -107,12 +120,12 @@ export const technologies = {
   backend: {
     title: 'Backend',
     color: 'purple',
-    items: ['nodejs', 'expressjs', 'api', 'sqlserver']
+    items: ['nodejs', 'expressjs', 'api', 'sqlserver', 'csharp', 'dotnet', 'entityframework']
   },
   tools: {
     title: 'Herramientas',
     color: 'orange',
-    items: ['git', 'github', 'jira', 'vscode']
+    items: ['git', 'github', 'jira', 'vscode', 'vstudio', 'postman', 'sqlmanagement']
   }
 };
 

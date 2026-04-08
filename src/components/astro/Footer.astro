@@ -1,6 +1,7 @@
 ---
 import { Mail, Linkedin, Github, MapPin, Phone } from 'lucide-react';
 import { personalInfo, menuItems } from '../../data/portfolioData';
+
 ---
 
 <footer class="py-12 px-6 border-t transition-colors duration-300 border-gray-200 dark:border-gray-800">
@@ -12,7 +13,7 @@ import { personalInfo, menuItems } from '../../data/portfolioData';
           apdev
         </h3>
         <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-500">
-          Desarrollador Fullstack con foco en Frontend, apasionado por crear interfaces web responsivas con React y soluciones escalables.
+          {personalInfo.shortBio}
         </p>
       </div>
 

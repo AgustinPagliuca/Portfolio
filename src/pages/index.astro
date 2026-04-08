@@ -7,9 +7,10 @@ import ExperienceSection from '../components/astro/ExperienceSection.astro';
 import ProjectsSection from '../components/astro/ProjectsSection.astro';
 import TechnologiesSection from '../components/astro/TechnologiesSection.astro';
 import Footer from '../components/astro/Footer.astro';
+import { personalInfo } from '../data/portfolioData';
 ---
 
-<Layout title="Agustín Pagliuca - Desarrollador Fullstack | React - Node.js">
+<Layout title="Agustín Pagliuca - Desarrollador Fullstack | React - .NET - SQL" description={personalInfo.seoDescription}>
   {/* Client-side wrapper for dark mode state */}
   <div id="app-root">
     <script>
@@ -36,15 +37,15 @@ import Footer from '../components/astro/Footer.astro';
 
     {/* Main Content */}
     <main class="relative">
-      <HeroSection darkMode={true} />
-      <ExperienceSection darkMode={true} />
-      <ProjectsSection darkMode={true} />
-      <TechnologiesSection darkMode={true} />
+      <HeroSection />
+      <ExperienceSection />
+      <ProjectsSection />
+      <TechnologiesSection />
       <AboutSection client:load darkMode={true} />
     </main>
 
     {/* Footer */}
-    <Footer darkMode={true} />
+    <Footer />
   </div>
 
   {/* Client-side script for dark mode synchronization */}

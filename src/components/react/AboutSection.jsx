@@ -67,8 +67,8 @@ const AboutSection = () => {
             <p className={`leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
               <span className={`font-medium ${darkMode ? 'text-white' : 'text-gray-900'}`}>Hola 👋</span>, soy Agustín Pagliuca,{' '}
               <span className={darkMode ? 'text-cyan-400' : 'text-cyan-600'}>Estudiante de Analista de Sistemas</span> y{' '}
-              <span className={darkMode ? 'text-cyan-400' : 'text-cyan-600'}>Desarrollador Fullstack con foco en Frontend</span>. Apasionado por la
-              programación desde temprana edad, con experiencia en React, consumo de APIs RESTful y conocimientos en backend con Node.js y SQL.
+              <span className={darkMode ? 'text-cyan-400' : 'text-cyan-600'}>Desarrollador Fullstack</span>. Apasionado por la
+              programación desde temprana edad, con experiencia en React, desarrollo de interfaces y consumo de APIs RESTful. Con sólidos conocimientos en SQL Server y metodologías ágiles, actualmente estoy enfocando mi crecimiento en el desarrollo backend con C# y .NET Core para crear soluciones robustas.
             </p>
 
             <p className={`leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
