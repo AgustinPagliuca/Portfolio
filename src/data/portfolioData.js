@@ -120,7 +120,7 @@ export const technologies = {
   backend: {
     title: 'Backend',
     color: 'purple',
-    items: ['api', 'sqlserver', 'csharp', 'dotnet', 'entityframework']
+    items: ['api', 'sqlserver', 'csharp', 'dotnet', 'aspnet', 'entityframework']
   },
   tools: {
     title: 'Herramientas',
