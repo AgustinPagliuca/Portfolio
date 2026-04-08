@@ -8,7 +8,7 @@ export const personalInfo = {
   subtitle: 'React · .NET · SQL',
   yearsExperience: '+2',
   email: 'agustinpagliuca1@gmail.com',
-  phone: '+54-11-23448499',
+  phone: '+54-9-11-23448499',
   location: 'Buenos Aires, Argentina',
   linkedin: 'https://www.linkedin.com/in/agustin-pagliuca-6836b7237/',
   github: 'https://github.com/AgustinPagliuca',
@@ -59,7 +59,7 @@ export const experience = [
     id: 1,
     title: 'Desarrollador Front-End Freelance',
     company: 'Independiente',
-    period: 'Presente',
+    period: '2024 - Presente',
     description: 'Desarrollo de interfaces web responsivas con React.js y Tailwind. Implementación de componentes reutilizables y optimización de rendimiento. Diseño y desarrollo de interfaces utilizando HTML, CSS, JavaScript y ReactJs. Integración de APIs RESTful, manejo de estado con Context API. Pruebas funcionales y corrección de bugs en entornos ágiles (Scrum).'
   },
   {
@@ -92,10 +92,10 @@ export const projects = [
   {
     id: 2,
     title: 'Espacio Dérmico',
-    description: 'Landing page para centro de estética y bienestar construida con Astro y React. Diseño responsive con Tailwind, integración de APIs y formularios de contacto funcionales.',
+    description: 'Landing page para centro de estética y bienestar construida con Astro y React. Diseño responsive con Tailwind y formularios de contacto funcionales.',
     image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=400&fit=crop',
     category: 'Frontend',
-    tech: ['React', 'Tailwind', 'JavaScript'],
+    tech: ['Astro', 'React', 'Tailwind', 'JavaScript'],
     link: 'https://agustinpagliuca.github.io/EspacioDermico/',
     github: 'https://github.com/AgustinPagliuca/EspacioDermico'
   },
@@ -115,12 +115,12 @@ export const technologies = {
   frontend: {
     title: 'Frontend',
     color: 'cyan',
-    items: ['javascript', 'react', 'nextjs', 'html5', 'css3', 'tailwind', 'bootstrap']
+    items: ['javascript', 'react', 'astro', 'html5', 'css3', 'tailwind']
   },
   backend: {
     title: 'Backend',
     color: 'purple',
-    items: ['nodejs', 'expressjs', 'api', 'sqlserver', 'csharp', 'dotnet', 'entityframework']
+    items: ['api', 'sqlserver', 'csharp', 'dotnet', 'entityframework']
   },
   tools: {
     title: 'Herramientas',

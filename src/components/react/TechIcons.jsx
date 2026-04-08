@@ -172,10 +172,17 @@ const icons = {
       <path fill="white" d="M36 26h33.3c6.4 0 11.5 1.5 15.3 4.5 3.7 3 5.6 7.2 5.6 12.7 0 3.7-.9 6.8-2.8 9.4-1.9 2.6-4.5 4.4-7.9 5.5 4.2.9 7.4 2.9 9.6 5.9 2.2 3 3.3 6.7 3.3 11 0 6-2.1 10.7-6.4 14.2C82.1 92.7 76.4 94.5 69 95H36V26zm13.1 28h18.5c3.3 0 5.8-.8 7.7-2.3 1.9-1.5 2.8-3.7 2.8-6.5 0-2.9-.9-5-2.8-6.5-1.9-1.4-4.5-2.2-7.7-2.2H49.1v17.5zm0 29h19.6c3.6 0 6.4-.8 8.4-2.5 2-1.7 3-4.1 3-7.1 0-3.1-1-5.5-3-7.2-2-1.7-4.8-2.5-8.4-2.5H49.1V83z"/>
     </svg>
   ),
+  astro: () => (
+    <svg viewBox="0 0 128 128" className="w-7 h-7">
+      <rect width="128" height="128" rx="20" fill="#17191E"/>
+      <path fill="#FF5D01" d="M64 18L90 100 64 83 38 100z"/>
+      <path fill="rgba(255,255,255,0.2)" d="M64 83L38 100 64 58z"/>
+    </svg>
+  ),
   expressjs: () => (
     <svg viewBox="0 0 128 128" className="w-7 h-7">
       <rect fill="#353535" width="128" height="128" rx="20"/>
-      <text x="64" y="72" textAnchor="middle" fill="white" fontSize="28" fontWeight="bold">Express</text>
+      <text x="64" y="72" textAnchor="middle" fill="white" fontSize="36" fontWeight="bold">EX</text>
     </svg>
   )
 };
@@ -257,6 +264,7 @@ export const techLabels = {
   nodejs: 'Node.js',
   nextjs: 'Next.js',
   bootstrap: 'Bootstrap',
+  astro: 'Astro',
   expressjs: 'Express.js'
 };
 
