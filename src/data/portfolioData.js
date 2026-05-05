@@ -103,10 +103,10 @@ export const projects = [
     id: 3,
     title: 'CineCore',
     description: 'Sistema de administración de cine con ASP.NET Core MVC. Incluye CRUD de películas, salas y funciones, reserva visual de butacas, panel de empleados y autenticación con roles mediante ASP.NET Identity.',
-    image: '/Portfolio/coming-soon.svg',
+    image: 'https://raw.githubusercontent.com/AgustinPagliuca/CineCore/main/docs/screenshots/01-home-carrusel.png',
     category: 'Backend',
     tech: ['C#', '.NET 10', 'ASP.NET Core MVC', 'Entity Framework Core', 'SQL Server', 'Bootstrap 5'],
-    link: '#',
+    link: 'https://github.com/AgustinPagliuca/CineCore',
     github: 'https://github.com/AgustinPagliuca/CineCore'
   }
 ];
