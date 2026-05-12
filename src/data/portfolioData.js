@@ -13,7 +13,7 @@ export const personalInfo = {
   linkedin: 'https://www.linkedin.com/in/agustin-pagliuca-6836b7237/',
   github: 'https://github.com/AgustinPagliuca',
   profileImage: '/Portfolio/foto-perfil.jpeg',
-  cvUrl: '/Portfolio/cv-agustin-pagliuca.pdf',
+  cvUrl: '/Portfolio/Agustin_Pagliuca_CV_Fullstack_ES.pdf',
   available: true,
   shortBio: 'Desarrollador Fullstack con experiencia en React y SQL Server, especializándome en backend con C# y .NET Core para crear soluciones robustas.',
   heroSubtitle: 'Experiencia en React, APIs RESTful y SQL Server. Actualmente especializándome en backend con C# y .NET Core. Me motiva trabajar en equipos colaborativos.',
