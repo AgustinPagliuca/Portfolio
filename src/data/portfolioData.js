@@ -15,9 +15,9 @@ export const personalInfo = {
   profileImage: '/Portfolio/foto-perfil.jpeg',
   cvUrl: '/Portfolio/Agustin_Pagliuca_CV_Fullstack_ES.pdf',
   available: true,
-  shortBio: 'Desarrollador Fullstack con experiencia en React y SQL Server, especializándome en backend con Java, C# y .NET Core para crear soluciones robustas.',
-  heroSubtitle: 'Experiencia en React, APIs RESTful y SQL Server. Actualmente especializándome en backend con Java, C# y .NET Core. Me motiva trabajar en equipos colaborativos.',
-  seoDescription: 'Portfolio de Agustín Pagliuca, Desarrollador Fullstack con experiencia en React y SQL Server. Especializándome en backend con Java, C# y .NET Core. Buenos Aires, Argentina.'
+  shortBio: 'Desarrollador Fullstack con experiencia en React y SQL Server, especializándome en backend con Java, Spring, C# y .NET Core para crear soluciones robustas.',
+  heroSubtitle: 'Experiencia en React, APIs RESTful y SQL Server. Actualmente especializándome en backend con Java, Spring, C# y .NET Core. Me motiva trabajar en equipos colaborativos.',
+  seoDescription: 'Portfolio de Agustín Pagliuca, Desarrollador Fullstack con experiencia en React y SQL Server. Especializándome en backend con Java, Spring, C# y .NET Core. Buenos Aires, Argentina.'
 };
 
 export const aboutMe = {
