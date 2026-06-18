@@ -20,8 +20,8 @@ Portfolio personal desarrollado con **Astro** y **React**, donde presento mi exp
 ## Correr localmente
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 
 Abre [http://localhost:4321](http://localhost:4321) en el navegador.

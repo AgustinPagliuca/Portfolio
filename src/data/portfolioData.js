@@ -5,7 +5,7 @@ export const personalInfo = {
   lastName: 'Pagliuca',
   fullName: 'Agustín Pagliuca',
   title: 'Desarrollador Fullstack',
-  subtitle: 'React · .NET · SQL',
+  subtitle: 'React · Spring · .NET · SQL',
   yearsExperience: '+2',
   email: 'agustinpagliuca1@gmail.com',
   phone: '+54-9-11-23448499',
@@ -15,9 +15,9 @@ export const personalInfo = {
   profileImage: '/Portfolio/foto-perfil.jpeg',
   cvUrl: '/Portfolio/Agustin_Pagliuca_CV_Fullstack_ES.pdf',
   available: true,
-  shortBio: 'Desarrollador Fullstack con experiencia en React y SQL Server, especializándome en backend con C# y .NET Core para crear soluciones robustas.',
-  heroSubtitle: 'Experiencia en React, APIs RESTful y SQL Server. Actualmente especializándome en backend con C# y .NET Core. Me motiva trabajar en equipos colaborativos.',
-  seoDescription: 'Portfolio de Agustín Pagliuca, Desarrollador Fullstack con experiencia en React y SQL Server. Especializándome en backend con C# y .NET Core. Buenos Aires, Argentina.'
+  shortBio: 'Desarrollador Fullstack con experiencia en React y SQL Server, especializándome en backend con Java, C# y .NET Core para crear soluciones robustas.',
+  heroSubtitle: 'Experiencia en React, APIs RESTful y SQL Server. Actualmente especializándome en backend con Java, C# y .NET Core. Me motiva trabajar en equipos colaborativos.',
+  seoDescription: 'Portfolio de Agustín Pagliuca, Desarrollador Fullstack con experiencia en React y SQL Server. Especializándome en backend con Java, C# y .NET Core. Buenos Aires, Argentina.'
 };
 
 export const aboutMe = {
@@ -108,6 +108,16 @@ export const projects = [
     tech: ['C#', '.NET 10', 'ASP.NET Core MVC', 'Entity Framework Core', 'SQL Server', 'Bootstrap 5'],
     link: 'https://github.com/AgustinPagliuca/CineCore',
     github: 'https://github.com/AgustinPagliuca/CineCore'
+  },
+  {
+    id: 4,
+    title: 'Oudora',
+    description: 'E-commerce de perfumería de nicho e importados. Catálogo por marcas y categorías, checkout con cuotas vía MercadoPago y confirmación de pedidos por WhatsApp. Incluye panel de administración propio (acceso vía /admin) para que el cliente gestione productos, marcas, reseñas, banners y avisos del sitio.',
+    image: '/Portfolio/assets/oudora-preview.png',
+    category: 'Fullstack',
+    tech: ['Astro', 'TypeScript', 'Supabase', 'PostgreSQL'],
+    link: 'https://oudora-teal.vercel.app/',
+    github: null
   }
 ];
 
@@ -120,7 +130,7 @@ export const technologies = {
   backend: {
     title: 'Backend',
     color: 'purple',
-    items: ['api', 'sqlserver', 'csharp', 'dotnet', 'aspnet', 'entityframework']
+    items: ['api', 'sqlserver', 'csharp', 'dotnet', 'aspnet', 'java', 'spring', 'entityframework']
   },
   tools: {
     title: 'Herramientas',
