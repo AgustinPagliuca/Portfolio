@@ -92,10 +92,10 @@ export const projects = [
   {
     id: 2,
     title: 'Espacio Dérmico',
-    description: 'Landing page para centro de estética y bienestar construida con Astro y React. Diseño responsive con Tailwind y formularios de contacto funcionales.',
+    description: 'Landing page para centro de estética y bienestar construida con React y Vite. Diseño responsive con Tailwind y formularios de contacto funcionales.',
     image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=400&fit=crop',
     category: 'Frontend',
-    tech: ['Astro', 'React', 'Tailwind', 'JavaScript'],
+    tech: ['React', 'Vite', 'Tailwind', 'JavaScript'],
     link: 'https://agustinpagliuca.github.io/EspacioDermico/',
     github: 'https://github.com/AgustinPagliuca/EspacioDermico'
   },
