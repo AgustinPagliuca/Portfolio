@@ -39,7 +39,7 @@ import { menuItems, personalInfo } from '../../data/portfolioData';
   function setMenu(open: boolean) {
     menu.classList.toggle('open', open);
     burger.classList.toggle('is-open', open);
-    document.body.classList.toggle('menu-open', open);
+    document.documentElement.classList.toggle('menu-open', open);
     burger.setAttribute('aria-expanded', String(open));
     burger.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
   }

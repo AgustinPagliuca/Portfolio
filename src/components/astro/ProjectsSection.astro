@@ -17,10 +17,17 @@ const categories = ['todos', ...new Set(projects.map((p) => p.category.toLowerCa
 
   <div class="pgrid" id="pgrid">
     {projects.map((project) => (
-      <article class="pcard rv" data-cat={project.category.toLowerCase()}>
+      <article class:list={['pcard', 'rv', { soon: project.comingSoon }]} data-cat={project.category.toLowerCase()}>
         <div class="thumb">
-          <img src={project.image} alt={`Captura del proyecto ${project.title}`} loading="lazy" />
+          {project.comingSoon ? (
+            <div class="thumb-soon" aria-hidden="true">
+              <span class="soon-cmd">&gt; npx react-native run<i class="soon-caret"></i></span>
+            </div>
+          ) : (
+            <img src={project.image} alt={`Captura del proyecto ${project.title}`} loading="lazy" />
+          )}
           <span class="tagf">{project.category}</span>
+          {project.comingSoon && <span class="soon-badge">coming soon</span>}
         </div>
         <div class="pbody">
           <h3>{project.title}</h3>
@@ -28,14 +35,18 @@ const categories = ['todos', ...new Set(projects.map((p) => p.category.toLowerCa
           <div class="ptech">
             {project.tech.map((t) => <span class="tt">{t}</span>)}
           </div>
-          <div class="plinks">
-            {project.link && project.link !== project.github && (
-              <a href={project.link} target="_blank" rel="noopener noreferrer">Ver en vivo ↗</a>
-            )}
-            {project.github && (
-              <a href={project.github} target="_blank" rel="noopener noreferrer">Ver código ↗</a>
-            )}
-          </div>
+          {project.comingSoon ? (
+            <p class="soon-status"><i></i>en desarrollo — lanzamiento {project.eta}</p>
+          ) : (
+            <div class="plinks">
+              {project.link && project.link !== project.github && (
+                <a href={project.link} target="_blank" rel="noopener noreferrer">Ver en vivo ↗</a>
+              )}
+              {project.github && (
+                <a href={project.github} target="_blank" rel="noopener noreferrer">Ver código ↗</a>
+              )}
+            </div>
+          )}
         </div>
       </article>
     ))}

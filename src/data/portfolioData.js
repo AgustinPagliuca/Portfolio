@@ -73,6 +73,17 @@ export const experience = [
 
 export const projects = [
   {
+    id: 5,
+    title: 'BurgApp',
+    description: 'App mobile para descubrir hamburgueserías: tendencias, lugares cerca tuyo y recomendaciones personalizadas, con mapa, reseñas y diario de visitas.',
+    category: 'Mobile',
+    tech: ['React Native', 'Expo', 'TypeScript', 'Supabase'],
+    comingSoon: true,
+    eta: '2026',
+    link: null,
+    github: null
+  },
+  {
     id: 4,
     title: 'Oudora',
     description: 'E-commerce de perfumería de nicho: catálogo por marcas, checkout en cuotas con MercadoPago, pedidos por WhatsApp y panel de administración propio.',
