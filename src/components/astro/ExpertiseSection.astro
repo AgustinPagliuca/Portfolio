@@ -1,0 +1,18 @@
+---
+import { expertise } from '../../data/portfolioData';
+---
+
+<section id="expertise" class="col">
+  <p class="stitle rv">expertise</p>
+  <h2 class="shead rv">Lo que hago bien.</h2>
+  <div class="xgrid">
+    {expertise.map((x) => (
+      <div class="xcard rv">
+        <span class="xnum">{x.num}</span>
+        <h3><u>{x.title}</u></h3>
+        <span class="xtag">{x.tag}</span>
+        <p>{x.description}</p>
+      </div>
+    ))}
+  </div>
+</section>

@@ -1,77 +1,64 @@
 ---
-import { ExternalLink, Github } from 'lucide-react';
 import { projects } from '../../data/portfolioData';
+
+const categories = ['todos', ...new Set(projects.map((p) => p.category.toLowerCase()))];
 ---
 
-<section id="proyectos" class="py-20 px-6 bg-gray-50 dark:bg-gray-900/50">
-  <div class="max-w-6xl mx-auto">
-    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
-      Proyectos
-    </h2>
-    <p class="mb-12 max-w-3xl text-gray-600 dark:text-gray-400">
-      Mis proyectos más destacados. Cada proyecto es el resultado de mi dedicación y
-      pasión por la programación. Descubre cómo transformo ideas en realidades digitales.
-      <span class="text-cyan-600 dark:text-cyan-400"> Explora, inspira y crea con mis proyectos de software!</span>
-    </p>
+<section id="proyectos" class="col">
+  <p class="stitle rv">proyectos</p>
+  <h2 class="shead rv">Trabajo real, en producción.</h2>
+  <p class="ssub rv">Cada proyecto resuelve un problema concreto — filtrá por capa del stack.</p>
 
-    <div class="grid md:grid-cols-2 gap-6">
-      {projects.map((project) => (
-        <div class="group rounded-2xl overflow-hidden border transition-all hover:shadow-xl bg-white border-gray-200 hover:border-cyan-500 hover:shadow-cyan-500/20 dark:bg-gray-800/50 dark:border-gray-700/50 dark:hover:border-cyan-500/50 dark:hover:shadow-cyan-500/10">
-          {/* Project Image */}
-          <div class="relative h-48 overflow-hidden">
-            <img
-              src={project.image}
-              alt={project.title}
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-            <div class="absolute top-4 left-4">
-              <span class="px-3 py-1 backdrop-blur-sm text-xs rounded-full border bg-white/80 text-gray-700 border-gray-300 dark:bg-gray-900/80 dark:text-gray-300 dark:border-gray-700">
-                {project.category}
-              </span>
-            </div>
-            <div class="absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent" />
+  <div class="filters rv" role="group" aria-label="Filtrar proyectos">
+    {categories.map((cat, i) => (
+      <button class:list={['chip', { on: i === 0 }]} data-f={cat === 'todos' ? 'all' : cat}>{cat}</button>
+    ))}
+  </div>
 
-            {/* Hover Actions */}
-            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4 bg-gray-800/60">
-              <a
-                href={project.link}
-                class="p-3 bg-cyan-500 rounded-full text-gray-900 hover:bg-cyan-400 transition-colors"
-                title="Ver proyecto"
-                aria-label={`Ver proyecto ${project.title}`}
-              >
-                <ExternalLink size={20} />
-              </a>
-              {project.github && (
-                <a
-                  href={project.github}
-                  class="p-3 bg-gray-700 rounded-full text-white hover:bg-gray-600 transition-colors"
-                  title="Ver código"
-                  aria-label={`Ver código de ${project.title}`}
-                >
-                  <Github size={20} />
-                </a>
-              )}
-            </div>
+  <div class="pgrid" id="pgrid">
+    {projects.map((project) => (
+      <article class="pcard rv" data-cat={project.category.toLowerCase()}>
+        <div class="thumb">
+          <img src={project.image} alt={`Captura del proyecto ${project.title}`} loading="lazy" />
+          <span class="tagf">{project.category}</span>
+        </div>
+        <div class="pbody">
+          <h3>{project.title}</h3>
+          <p>{project.description}</p>
+          <div class="ptech">
+            {project.tech.map((t) => <span class="tt">{t}</span>)}
           </div>
-
-          {/* Project Info */}
-          <div class="p-6">
-            <h3 class="text-xl font-semibold mb-2 transition-colors text-cyan-600 group-hover:text-cyan-500 dark:text-cyan-400 dark:group-hover:text-cyan-300">
-              {project.title}
-            </h3>
-            <p class="text-sm mb-4 text-gray-600 dark:text-gray-400">
-              {project.description}
-            </p>
-            <div class="flex flex-wrap gap-2">
-              {project.tech.map((tech) => (
-                <span class="px-2.5 py-1 text-xs rounded-md bg-gray-100 text-gray-600 dark:bg-gray-700/50 dark:text-gray-400">
-                  {tech}
-                </span>
-              ))}
-            </div>
+          <div class="plinks">
+            {project.link && project.link !== project.github && (
+              <a href={project.link} target="_blank" rel="noopener noreferrer">Ver en vivo ↗</a>
+            )}
+            {project.github && (
+              <a href={project.github} target="_blank" rel="noopener noreferrer">Ver código ↗</a>
+            )}
           </div>
         </div>
-      ))}
-    </div>
+      </article>
+    ))}
   </div>
+  <p class="pcount" id="pcount">{projects.length} de {projects.length} proyectos</p>
 </section>
+
+<script>
+  const chips = document.querySelectorAll<HTMLElement>('.chip');
+  const cards = document.querySelectorAll<HTMLElement>('.pcard');
+  const pcount = document.getElementById('pcount')!;
+  chips.forEach((ch) =>
+    ch.addEventListener('click', () => {
+      chips.forEach((c) => c.classList.remove('on'));
+      ch.classList.add('on');
+      const f = ch.dataset.f;
+      let n = 0;
+      cards.forEach((c) => {
+        const show = f === 'all' || c.dataset.cat === f;
+        c.classList.toggle('hid', !show);
+        if (show) n++;
+      });
+      pcount.textContent = `${n} de ${cards.length} proyectos${f === 'all' ? '' : ' · ' + f}`;
+    })
+  );
+</script>

@@ -1,0 +1,62 @@
+---
+import { menuItems, personalInfo } from '../../data/portfolioData';
+---
+
+<header class="site-header" id="site-header">
+  <div class="col hd">
+    <a class="logo" href="#top">agus<span>.</span>dev</a>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span>
+    </button>
+    <nav id="menu">
+      <div class="m-links">
+        {menuItems.map((item, i) => (
+          <a class="nlink" href={`#${item.id}`} data-s={item.id} style={`--i:${i}`}>
+            <span class="m-num">0{i + 1}</span><b>//</b> {item.label}
+          </a>
+        ))}
+      </div>
+      <a class="ncta" href="#contacto" style={`--i:${menuItems.length}`}>Hablemos</a>
+      <div class="m-foot" style={`--i:${menuItems.length + 1}`}>
+        <div class="m-social">
+          <a href={personalInfo.github} target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a href={`mailto:${personalInfo.email}`}>Email</a>
+        </div>
+        <span class="m-status"><i></i>disponible para proyectos</span>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const hdr = document.getElementById('site-header')!;
+  addEventListener('scroll', () => hdr.classList.toggle('scr', scrollY > 10), { passive: true });
+
+  // Menú móvil
+  const burger = document.getElementById('burger')!;
+  const menu = document.getElementById('menu')!;
+  function setMenu(open: boolean) {
+    menu.classList.toggle('open', open);
+    burger.classList.toggle('is-open', open);
+    document.body.classList.toggle('menu-open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+  }
+  burger.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+  menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
+  addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+
+  // Scroll-spy
+  const links = document.querySelectorAll<HTMLElement>('.nlink');
+  const ids = Array.from(links).map((l) => l.dataset.s!);
+  addEventListener('scroll', () => {
+    const y = scrollY + innerHeight * 0.35;
+    let cur = '';
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el && el.offsetTop <= y) cur = id;
+    });
+    links.forEach((l) => l.classList.toggle('on', l.dataset.s === cur));
+  }, { passive: true });
+</script>

@@ -1,0 +1,25 @@
+---
+import { personalInfo, aboutMe } from '../../data/portfolioData';
+
+// Palabras clave resaltadas en teal dentro de la bio
+const highlight = (text: string) =>
+  text
+    .replace('SQL Server', '<span class="mark">SQL Server</span>')
+    .replace('Java, Spring, C# y .NET Core', '<span class="mark">Java, Spring, C# y .NET Core</span>')
+    .replace('Estudiante de Analista de Sistemas', '<strong>Estudiante de Analista de Sistemas</strong>')
+    .replace('equipos colaborativos', '<strong>equipos colaborativos</strong>');
+---
+
+<section id="sobre-mi" class="col">
+  <p class="stitle rv">sobre-mí</p>
+  <h2 class="shead rv">Detrás del código.</h2>
+  <div class="agrid">
+    <div class="aphoto rv">
+      <img src={personalInfo.profileImage} alt={`${personalInfo.fullName} - ${personalInfo.title}`} loading="lazy" />
+      <span class="aphoto-tag">Buenos Aires, AR</span>
+    </div>
+    <div class="abody rv">
+      {aboutMe.paragraphs.map((p) => <p set:html={highlight(p)} />)}
+    </div>
+  </div>
+</section>

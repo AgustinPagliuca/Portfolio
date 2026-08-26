@@ -7,7 +7,7 @@ export interface Props {
 }
 
 const siteUrl = new URL(import.meta.env.BASE_URL, Astro.site).href.replace(/\/$/, '');
-const { title, description = 'Portfolio de Agustín Pagliuca, Desarrollador Fullstack con experiencia en React y SQL Server. Especializándome en backend con C# y .NET Core. Buenos Aires, Argentina.' } = Astro.props;
+const { title, description = 'Portfolio de Agustín Pagliuca, Desarrollador Fullstack con experiencia en React y SQL Server. Especializándome en backend con Java, Spring, C# y .NET Core. Buenos Aires, Argentina.' } = Astro.props;
 const ogImage = `${siteUrl}/foto-perfil.jpeg`;
 ---
 
@@ -18,8 +18,9 @@ const ogImage = `${siteUrl}/foto-perfil.jpeg`;
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content={description} />
   <meta name="author" content="Agustín Pagliuca" />
-  <meta name="keywords" content="desarrollador fullstack, react, .net, c#, sql server, portfolio, buenos aires, argentina" />
+  <meta name="keywords" content="desarrollador fullstack, react, .net, spring, c#, sql server, portfolio, buenos aires, argentina" />
   <meta name="generator" content={Astro.generator} />
+  <meta name="theme-color" content="#0C0E0F" />
 
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
@@ -36,8 +37,108 @@ const ogImage = `${siteUrl}/foto-perfil.jpeg`;
   <link rel="canonical" href={siteUrl} />
   <title>{title}</title>
   <link rel="icon" type="image/svg+xml" href="/Portfolio/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" />
 </head>
-<body class="min-h-screen transition-colors duration-300">
+<body class="loading">
+  {/* Pantalla de carga */}
+  <div class="loader" id="loader" aria-hidden="true">
+    <span class="loader-logo">agus<span>.</span>dev<span class="caret"></span></span>
+    <div class="loader-bar"><i id="loader-fill"></i></div>
+    <span class="loader-hint">// cargando…</span>
+  </div>
+
+  {/* Aureola que sigue al cursor (aurora ambiental en táctil) */}
+  <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+
+  {/* Barra de progreso de scroll */}
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
   <slot />
+
+  <script>
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ---- Pantalla de carga ----
+    const loader = document.getElementById('loader')!;
+    const fill = document.getElementById('loader-fill')!;
+    const MIN_MS = 900; // duración mínima para que se aprecie
+    const start = performance.now();
+
+    let progress = 0;
+    const tick = setInterval(() => {
+      progress = Math.min(progress + 8 + Math.random() * 14, 90);
+      fill.style.width = progress + '%';
+    }, 90);
+
+    function finishLoader() {
+      const wait = Math.max(0, MIN_MS - (performance.now() - start));
+      setTimeout(() => {
+        clearInterval(tick);
+        fill.style.width = '100%';
+        setTimeout(() => {
+          loader.classList.add('done');
+          document.body.classList.remove('loading');
+          setTimeout(() => loader.remove(), 600);
+        }, 220);
+      }, wait);
+    }
+
+    if (reduced) {
+      loader.remove();
+      document.body.classList.remove('loading');
+      clearInterval(tick);
+    } else if (document.readyState === 'complete') {
+      finishLoader();
+    } else {
+      addEventListener('load', finishLoader, { once: true });
+      setTimeout(finishLoader, 3500); // tope de seguridad
+    }
+
+    // ---- Aureola del cursor (solo punteros finos) ----
+    const glow = document.getElementById('cursor-glow')!;
+    if (!reduced && matchMedia('(pointer: fine)').matches) {
+      let tx = innerWidth / 2, ty = innerHeight / 3; // destino
+      let x = tx, y = ty;                             // posición actual
+      let raf = 0;
+
+      const render = () => {
+        x += (tx - x) * 0.12;
+        y += (ty - y) * 0.12;
+        glow.style.transform = `translate(${x - 180}px, ${y - 180}px)`;
+        raf = Math.abs(tx - x) + Math.abs(ty - y) > 0.3 ? requestAnimationFrame(render) : 0;
+      };
+
+      addEventListener('pointermove', (e) => {
+        tx = e.clientX; ty = e.clientY;
+        glow.classList.add('on');
+        if (!raf) raf = requestAnimationFrame(render);
+      }, { passive: true });
+
+      document.documentElement.addEventListener('mouseleave', () => glow.classList.remove('on'));
+    }
+
+    // ---- Barra de progreso de scroll ----
+    const bar = document.getElementById('scroll-progress')!;
+    const updateBar = () => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      bar.style.width = (max > 0 ? (scrollY / max) * 100 : 0) + '%';
+    };
+    addEventListener('scroll', updateBar, { passive: true });
+    updateBar();
+
+    // ---- Reveals on scroll (escalonados) ----
+    const io = new IntersectionObserver((entries) => {
+      const visible = entries.filter((e) => e.isIntersecting);
+      visible.forEach((e, i) => {
+        (e.target as HTMLElement).style.transitionDelay = reduced ? '0ms' : Math.min(i * 80, 320) + 'ms';
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.rv').forEach((el) => io.observe(el));
+  </script>
 </body>
 </html>
